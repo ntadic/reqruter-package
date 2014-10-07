@@ -1,0 +1,14 @@
+<section data-ng-controller="CandidatesController" data-ng-init="findOne()">
+  <span>{{candidate.created | date:'medium'}}</span> /
+  <span>{{candidate.user.name}}</span>
+  <h2>{{candidate.firstname}}</h2>
+  <div data-ng-if="hasAuthorization(candidate)">
+    <a class="btn" href="/#!/candidates/{{candidate._id}}/edit">
+      <i class="glyphicon glyphicon-edit"></i>
+    </a>
+    <a class="btn" data-ng-click="remove(candidate);">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
+  <div>{{candidate.note}}</div>
+</section>

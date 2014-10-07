@@ -1,0 +1,42 @@
+<section data-ng-controller="CandidatesController" data-ng-init="find()">
+    <table class="table">
+        <tr>
+            <th mean-token="list-name">Name</th>
+            <th mean-token="list-email">Email</th>
+            <th mean-token="list-phone">Phone</th>
+            <th mean-token="list-dateofbirth">Date of birth</th>
+            <th mean-token="list-yearsofexperience">Years of experience</th>
+            <th mean-token="list-view">View</th>
+        </tr>
+        <tr ng-repeat="candidate in candidates">
+            <td>{{candidate.firstname}} {{candidate.lastname}}</td>
+            <td>{{candidate.email}}</td>
+            <td>{{candidate.phone}}</td>
+            <td>{{candidate.dateofbirth | date}}</td>
+            <td>{{candidate.yearsofexperience}}</td>
+            <td><a data-ng-href="#!/candidates/{{candidate._id}}">view</a></td>
+        </tr>
+    </table>
+<!--
+  <ul class="candidates unstyled">
+    <li data-ng-repeat="candidate in candidates">
+      <span>{{candidate.created | date:'medium'}}</span> /
+      <span>{{candidate.user.name}}</span>
+      <h2>
+        <a data-ng-href="#!/candidates/{{candidate._id}}">{{candidate.firstname}}</a>
+        <span data-ng-if="hasAuthorization(candidate)">
+          <a class="btn" href="/#!/candidates/{{candidate._id}}/edit">
+            <i class="glyphicon glyphicon-edit"></i>
+          </a>
+          <a class="btn" data-ng-click="remove(candidate);">
+            <i class="glyphicon glyphicon-trash"></i>
+          </a>
+        </span>
+      </h2>
+      <div>{{candidate.note}}</div>
+    </li>
+  </ul>
+  <h1 data-ng-hide="!candidates || candidates.length">No candidates yet. <br> Why don't you <a href="/#!/candidates/create">Create One</a>?</h1>
+
+  -->
+</section>

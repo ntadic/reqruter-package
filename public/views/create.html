@@ -1,0 +1,84 @@
+<section data-ng-controller="CandidatesController">
+  <form name="candidateForm" class="form-horizontal col-md-6" role="form" data-ng-submit="create(candidateForm.$valid)" novalidate>
+    <div class="form-group" ng-class="{ 'has-error' : submitted && candidateForm.title.$invalid }">
+      <label mean-token="'create-firstname'" class="col-md-3 control-label">First name</label>
+      <div class="col-md-9">
+        <input name="firstname" type="text" class="form-control" data-ng-model="firstname" id="firstname" placeholder="First name" required>
+        <div ng-show="submitted && candidateForm.firstname.$invalid" class="help-block">
+          <p ng-show="candidateForm.firstname.$error.required">First name is required</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group" ng-class="{ 'has-error' : submitted && candidateForm.lastname.$invalid }">
+      <label mean-token="'create-lastname'" for="lastname" class="col-md-3 control-label">Last name</label>
+      <div class="col-md-9">
+        <input type="text" name="lastname" data-ng-model="lastname" id="lastname" cols="30" rows="10" placeholder="Last name" class="form-control" required/>
+        <div ng-show="submitted && candidateForm.lastname.$invalid" class="help-block">
+          <p ng-show="candidateForm.lastname.$error.required">Last name is required</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group" ng-class="{ 'has-error' : submitted && candidateForm.dateofbirth.$invalid }">
+      <label mean-token="'create-dateofbirth'" for="dateofbirth" class="col-md-3 control-label">Date of birth</label>
+      <div class="col-md-9">
+          <p class="input-group">
+              <input type="text" name="dateofbirth" data-ng-model="dateofbirth" id="dateofbirth" placeholder="Date of birth" class="form-control"
+                     datepicker-popup="{{format}}" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" close-text="Close" />
+
+      <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="openDatepicker($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+      </span>
+          </p>
+          <div ng-show="submitted && candidateForm.dateofbirth.$invalid" class="help-block">
+              <p ng-show="candidateForm.email.$error.required">Date is not valid</p>
+          </div>
+      </div>
+    </div>
+
+    <div class="form-group" ng-class="{ 'has-error' : submitted && candidateForm.email.$invalid }">
+      <label mean-token="'create-email'" for="email" class="col-md-3 control-label">Email</label>
+      <div class="col-md-9">
+          <input type="email" name="email" data-ng-model="email" id="email" placeholder="Email" class="form-control" required/>
+          <div ng-show="submitted && candidateForm.email.$invalid" class="help-block">
+              <p ng-show="candidateForm.email.$error.required">Email is required</p>
+          </div>
+      </div>
+    </div>
+
+    <div class="form-group" ng-class="{ 'has-error' : submitted && candidateForm.phone.$invalid }">
+      <label mean-token="'create-phone'" for="phone" class="col-md-3 control-label">Phone</label>
+      <div class="col-md-9">
+          <input type="tel" name="phone" data-ng-model="phone" id="phone" placeholder="Phone" class="form-control"/>
+          <div ng-show="submitted && candidateForm.phone.$invalid" class="help-block">
+              <p ng-show="candidateForm.phone.$error.required">Phone is invalid</p>
+          </div>
+      </div>
+    </div>
+
+    <div class="form-group" ng-class="{ 'has-error' : submitted && candidateForm.yearsofexperience.$invalid }">
+      <label mean-token="'create-yearsofexperience'" for="yearsofexperience" class="col-md-3 control-label">Years of experience</label>
+      <div class="col-md-9">
+          <input type="number" name="yearsofexperience" data-ng-model="yearsofexperience" id="yearsofexperience" placeholder="Years of experience" class="form-control"/>
+          <div ng-show="submitted && candidateForm.yearsofexperience.$invalid" class="help-block">
+              <p ng-show="candidateForm.yearsofexperience.$error.required">Years of experience is invalid</p>
+          </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label mean-token="'create-note'" for="note" class="col-md-3 control-label">Note</label>
+      <div class="col-md-9">
+          <textarea name="note" data-ng-model="note" id="note" cols="30" rows="10" placeholder="Note" class="form-control" ></textarea>
+      </div>
+    </div>
+
+
+      <div class="form-group">
+      <div class="col-md-offset-3 col-md-9">
+        <button  mean-token="'create-submit'" type="submit" class="btn btn-info">Submit</button>
+      </div>
+    </div>
+  </form>
+</section>
