@@ -18,10 +18,19 @@ Reqruter.register(function(app, auth, database) {
 
   //We are adding a link to the main menu for all authenticated users
   Reqruter.menus.add({
-    title: 'reqruter example page',
-    link: 'reqruter example page',
-    roles: ['authenticated'],
-    menu: 'main'
+    'roles': ['authenticated'],
+    'title': 'Candidates',
+    'link': 'all candidates',
+    'items': [{
+        'roles': ['authenticated'],
+        'title': 'Candidates',
+        'link': 'all candidates'
+        },
+        {
+            'roles': ['authenticated'],
+            'title': 'Create New Candidate',
+            'link': 'create candidate'
+        }]
   });
   
   Reqruter.aggregateAsset('css', 'reqruter.css');
