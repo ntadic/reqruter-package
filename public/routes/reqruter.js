@@ -46,13 +46,6 @@ angular.module('mean.reqruter').config(['$stateProvider',
           loggedin: checkLoggedin
         }
       })
-      .state('candidate by id', {
-        url: '/candidates/:candidateId',
-        templateUrl: 'reqruter/views/candidate-view.html',
-        resolve: {
-          loggedin: checkLoggedin
-        }
-        })
 
     // states for questions
       .state('all question sets',{

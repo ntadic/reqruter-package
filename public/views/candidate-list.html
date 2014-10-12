@@ -6,7 +6,7 @@
             <th mean-token="list-phone">Phone</th>
             <th mean-token="list-dateofbirth">Date of birth</th>
             <th mean-token="list-yearsofexperience">Years of experience</th>
-            <th mean-token="list-view">View</th>
+            <th mean-token="list-view">Edit</th>
         </tr>
         <tr ng-repeat="candidate in candidates">
             <td>{{candidate.firstname}} {{candidate.lastname}}</td>
@@ -14,7 +14,7 @@
             <td>{{candidate.phone}}</td>
             <td>{{candidate.dateofbirth | date}}</td>
             <td>{{candidate.yearsofexperience}}</td>
-            <td><a data-ng-href="#!/candidates/{{candidate._id}}">view</a></td>
+            <td><a data-ng-href="#!/candidates/{{candidate._id}}/edit">edit</a></td>
         </tr>
     </table>
     <pagination total-items="totalItems" ng-model="currentPage" items-per-page="maxSize" ng-change="pageChanged()" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages"></pagination>
