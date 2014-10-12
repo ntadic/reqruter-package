@@ -75,8 +75,20 @@ angular.module('mean.reqruter').controller('CandidatesController', ['$scope', '$
     };
 
     $scope.find = function() {
+      //use client side pagination
+      $scope.maxSize = 10;
+      $scope.currentPage = 1;
+
+      $scope.pageChanged = function() {
+        Candidates.query(function(candidates) {
+          $scope.totalItems = candidates.length;
+          $scope.candidates = candidates.slice(($scope.currentPage-1)*$scope.maxSize, $scope.currentPage*$scope.maxSize);
+        });
+      };
+
       Candidates.query(function(candidates) {
-        $scope.candidates = candidates;
+        $scope.totalItems = candidates.length;
+        $scope.candidates = candidates.slice(0, $scope.maxSize);
       });
     };
 

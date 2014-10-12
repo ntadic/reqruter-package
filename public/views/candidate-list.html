@@ -17,6 +17,7 @@
             <td><a data-ng-href="#!/candidates/{{candidate._id}}">view</a></td>
         </tr>
     </table>
+    <pagination total-items="totalItems" ng-model="currentPage" items-per-page="maxSize" ng-change="pageChanged()" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages"></pagination>
 <!--
   <ul class="candidates unstyled">
     <li data-ng-repeat="candidate in candidates">

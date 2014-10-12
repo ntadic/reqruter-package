@@ -30,25 +30,25 @@ Reqruter.register(function(app, auth, database) {
         'roles': ['authenticated'],
         'title': 'Create New Candidate',
         'link': 'create candidate'
-      },
-      {
-        'roles': ['interviewer'],
-        'title': 'Questions',
-        'link': 'all question sets',
-        'items': [{
-          'roles': ['interviewer'],
-          'title': 'Question Sets',
-          'link': 'all question sets'
-          },
-          {
-            'roles': ['interviewer'],
-            'title': 'Create Question Set',
-            'link': 'create question set'
-          }
-        ]
       }
     ]
-  });
+  },
+    {
+      'roles': ['interviewer'],
+      'title': 'Questions',
+      'link': 'all question sets',
+      'items': [{
+        'roles': ['interviewer'],
+        'title': 'Question Sets',
+        'link': 'all question sets'
+      },
+        {
+          'roles': ['interviewer'],
+          'title': 'Create Question Set',
+          'link': 'create question set'
+        }
+      ]
+    });
   
   Reqruter.aggregateAsset('css', 'reqruter.css');
 
