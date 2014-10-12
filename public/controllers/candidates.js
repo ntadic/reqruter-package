@@ -27,7 +27,7 @@ angular.module('mean.reqruter').controller('CandidatesController', ['$scope', '$
           note: this.note
         });
         candidate.$save(function(response) {
-          $location.path('candidates/' + response._id);
+          $location.path('candidates');
         });
 
         this.firstname='';
@@ -67,7 +67,7 @@ angular.module('mean.reqruter').controller('CandidatesController', ['$scope', '$
         candidate.updated.push(new Date().getTime());
 
         candidate.$update(function() {
-          $location.path('candidates/' + candidate._id);
+          $location.path('candidates');
         });
       } else {
         $scope.submitted = true;
