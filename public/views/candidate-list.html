@@ -1,58 +1,36 @@
 <section data-ng-controller="CandidatesController" data-ng-init="find()">
-    <table class="table">
-        <tr>
-            <th mean-token="list-name">
-              <span class="glyphicon" ng-class="{'glyphicon-chevron-down':'firstname' == sortBy && !sortDir,'glyphicon-chevron-up':'firstname' == sortBy && sortDir}"/>
-              <a href ng-click="sort('firstname')">Name</a>
-            </th>
-            <th mean-token="list-email">
-              <span class="glyphicon" ng-class="{'glyphicon-chevron-down':'email' == sortBy && !sortDir,'glyphicon-chevron-up':'email' == sortBy && sortDir}"/>
-              <a href ng-click="sort('email')">Email</a>
-            </th>
-            <th mean-token="list-phone">
-              <span class="glyphicon" ng-class="{'glyphicon-chevron-down':'phone' == sortBy && !sortDir,'glyphicon-chevron-up':'phone' == sortBy && sortDir}"/>
-              <a href ng-click="sort('phone')">Phone</a>
-            </th>
-            <th mean-token="list-dateofbirth">
-              <span class="glyphicon" ng-class="{'glyphicon-chevron-down':'dateofbirth' == sortBy && !sortDir,'glyphicon-chevron-up':'dateofbirth' == sortBy && sortDir}"/>
-              <a href ng-click="sort('dateofbirth')">Date of birth</a>
-            </th>
-            <th mean-token="list-yearsofexperience">
-              <span class="glyphicon" ng-class="{'glyphicon-chevron-down':'yearsofexperience' == sortBy && !sortDir,'glyphicon-chevron-up':'yearsofexperience' == sortBy && sortDir}"/>
-              <a href ng-click="sort('yearsofexperience')">Years of experience</a>
-            </th>
-            <th mean-token="list-view">Edit</th>
-        </tr>
-        <tr ng-repeat="candidate in candidates">
-            <td>{{candidate.firstname}} {{candidate.lastname}}</td>
-            <td>{{candidate.email}}</td>
-            <td>{{candidate.phone}}</td>
-            <td>{{candidate.dateofbirth | date}}</td>
-            <td>{{candidate.yearsofexperience}}</td>
-            <td><a data-ng-href="#!/candidates/{{candidate._id}}/edit">edit</a></td>
-        </tr>
-    </table>
+  <table class="table">
+    <tr>
+      <th mean-token="list-name">
+        <span class="glyphicon" ng-class="{'glyphicon-chevron-down':'firstname' == sortBy && !sortDir,'glyphicon-chevron-up':'firstname' == sortBy && sortDir}"/>
+        <a href ng-click="sort('firstname')">Name</a>
+      </th>
+      <th mean-token="list-email">
+        <span class="glyphicon" ng-class="{'glyphicon-chevron-down':'email' == sortBy && !sortDir,'glyphicon-chevron-up':'email' == sortBy && sortDir}"/>
+        <a href ng-click="sort('email')">Email</a>
+      </th>
+      <th mean-token="list-phone">
+        <span class="glyphicon" ng-class="{'glyphicon-chevron-down':'phone' == sortBy && !sortDir,'glyphicon-chevron-up':'phone' == sortBy && sortDir}"/>
+        <a href ng-click="sort('phone')">Phone</a>
+      </th>
+      <th mean-token="list-dateofbirth">
+        <span class="glyphicon" ng-class="{'glyphicon-chevron-down':'dateofbirth' == sortBy && !sortDir,'glyphicon-chevron-up':'dateofbirth' == sortBy && sortDir}"/>
+        <a href ng-click="sort('dateofbirth')">Date of birth</a>
+      </th>
+      <th mean-token="list-yearsofexperience">
+        <span class="glyphicon" ng-class="{'glyphicon-chevron-down':'yearsofexperience' == sortBy && !sortDir,'glyphicon-chevron-up':'yearsofexperience' == sortBy && sortDir}"/>
+        <a href ng-click="sort('yearsofexperience')">Years of experience</a>
+      </th>
+      <th mean-token="list-view">Edit</th>
+    </tr>
+    <tr ng-repeat="candidate in candidates">
+      <td>{{candidate.firstname}} {{candidate.lastname}}</td>
+      <td>{{candidate.email}}</td>
+      <td>{{candidate.phone}}</td>
+      <td>{{candidate.dateofbirth | date}}</td>
+      <td>{{candidate.yearsofexperience}}</td>
+      <td><a data-ng-href="#!/candidates/{{candidate._id}}/edit">edit</a></td>
+    </tr>
+  </table>
     <pagination total-items="totalItems" ng-model="currentPage" items-per-page="maxSize" ng-change="pageChanged()" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages"></pagination>
-<!--
-  <ul class="candidates unstyled">
-    <li data-ng-repeat="candidate in candidates">
-      <span>{{candidate.created | date:'medium'}}</span> /
-      <span>{{candidate.user.name}}</span>
-      <h2>
-        <a data-ng-href="#!/candidates/{{candidate._id}}">{{candidate.firstname}}</a>
-        <span data-ng-if="hasAuthorization(candidate)">
-          <a class="btn" href="/#!/candidates/{{candidate._id}}/edit">
-            <i class="glyphicon glyphicon-edit"></i>
-          </a>
-          <a class="btn" data-ng-click="remove(candidate);">
-            <i class="glyphicon glyphicon-trash"></i>
-          </a>
-        </span>
-      </h2>
-      <div>{{candidate.note}}</div>
-    </li>
-  </ul>
-  <h1 data-ng-hide="!candidates || candidates.length">No candidates yet. <br> Why don't you <a href="/#!/candidates/create">Create One</a>?</h1>
-
-  -->
 </section>
