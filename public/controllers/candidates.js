@@ -4,6 +4,17 @@ angular.module('mean.reqruter').controller('CandidatesController', ['$scope', '$
   function($scope, $stateParams, $location, Global, Candidates) {
     $scope.global = Global;
 
+    // sorting utility func
+    var sort = function (a,b){
+      var property = $scope.sortBy || 'firstname';
+      var result = 0;
+      if($scope.sortDir)
+        a[property] < b[property] ? result = -1 : result = 1;
+      else
+        a[property] > b[property] ? result = -1 : result = 1;
+      return result;
+    }
+
     $scope.hasAuthorization = function(candidate) {
       return $scope.global.isAdmin;
     };
@@ -82,13 +93,23 @@ angular.module('mean.reqruter').controller('CandidatesController', ['$scope', '$
       $scope.pageChanged = function() {
         Candidates.query(function(candidates) {
           $scope.totalItems = candidates.length;
-          $scope.candidates = candidates.slice(($scope.currentPage-1)*$scope.maxSize, $scope.currentPage*$scope.maxSize);
+          $scope.candidates = candidates.sort(sort).slice(($scope.currentPage-1)*$scope.maxSize, $scope.currentPage*$scope.maxSize);
         });
       };
 
+      $scope.sort = function(prop){
+        $scope.sortDir = ($scope.sortBy == prop) ? !$scope.sortDir : true;
+        $scope.sortBy = prop;
+
+        Candidates.query(function(candidates) {
+          $scope.totalItems = candidates.length;
+          $scope.candidates = candidates.sort(sort).slice(0, $scope.maxSize);
+        });
+      }
+
       Candidates.query(function(candidates) {
         $scope.totalItems = candidates.length;
-        $scope.candidates = candidates.slice(0, $scope.maxSize);
+        $scope.candidates = candidates.sort(sort).slice(0, $scope.maxSize);
       });
     };
 

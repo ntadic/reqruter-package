@@ -1,11 +1,26 @@
 <section data-ng-controller="CandidatesController" data-ng-init="find()">
     <table class="table">
         <tr>
-            <th mean-token="list-name">Name</th>
-            <th mean-token="list-email">Email</th>
-            <th mean-token="list-phone">Phone</th>
-            <th mean-token="list-dateofbirth">Date of birth</th>
-            <th mean-token="list-yearsofexperience">Years of experience</th>
+            <th mean-token="list-name">
+              <span class="glyphicon" ng-class="{'glyphicon-chevron-down':'firstname' == sortBy && !sortDir,'glyphicon-chevron-up':'firstname' == sortBy && sortDir}"/>
+              <a href ng-click="sort('firstname')">Name</a>
+            </th>
+            <th mean-token="list-email">
+              <span class="glyphicon" ng-class="{'glyphicon-chevron-down':'email' == sortBy && !sortDir,'glyphicon-chevron-up':'email' == sortBy && sortDir}"/>
+              <a href ng-click="sort('email')">Email</a>
+            </th>
+            <th mean-token="list-phone">
+              <span class="glyphicon" ng-class="{'glyphicon-chevron-down':'phone' == sortBy && !sortDir,'glyphicon-chevron-up':'phone' == sortBy && sortDir}"/>
+              <a href ng-click="sort('phone')">Phone</a>
+            </th>
+            <th mean-token="list-dateofbirth">
+              <span class="glyphicon" ng-class="{'glyphicon-chevron-down':'dateofbirth' == sortBy && !sortDir,'glyphicon-chevron-up':'dateofbirth' == sortBy && sortDir}"/>
+              <a href ng-click="sort('dateofbirth')">Date of birth</a>
+            </th>
+            <th mean-token="list-yearsofexperience">
+              <span class="glyphicon" ng-class="{'glyphicon-chevron-down':'yearsofexperience' == sortBy && !sortDir,'glyphicon-chevron-up':'yearsofexperience' == sortBy && sortDir}"/>
+              <a href ng-click="sort('yearsofexperience')">Years of experience</a>
+            </th>
             <th mean-token="list-view">Edit</th>
         </tr>
         <tr ng-repeat="candidate in candidates">
