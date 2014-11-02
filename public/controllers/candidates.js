@@ -9,11 +9,11 @@ angular.module('mean.reqruter').controller('CandidatesController', ['$scope', '$
       var property = $scope.sortBy || 'firstname';
       var result = 0;
       if($scope.sortDir)
-        a[property] < b[property] ? result = -1 : result = 1;
+        result = a[property] < b[property] ? -1 : 1;
       else
-        a[property] > b[property] ? result = -1 : result = 1;
+        result = a[property] > b[property] ? -1 : 1;
       return result;
-    }
+    };
 
     $scope.hasAuthorization = function(candidate) {
       return $scope.global.isAdmin;
@@ -105,7 +105,7 @@ angular.module('mean.reqruter').controller('CandidatesController', ['$scope', '$
           $scope.totalItems = candidates.length;
           $scope.candidates = candidates.sort(sort).slice(0, $scope.maxSize);
         });
-      }
+      };
 
       Candidates.query(function(candidates) {
         $scope.totalItems = candidates.length;
